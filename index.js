@@ -25,11 +25,10 @@
         }
         break;
       case 'SassColor':
-        if (1 === a.getA()) {
-          value = 'rgb(' + a.getR() + ', ' + a.getG() + ', ' + a.getB() + ')';
-        }
-        else {
-          value = 'rgba(' + a.getR() + ', ' + a.getG() + ', ' + a.getB() + ', ' + a.getA() + ')';
+        if (a.getA() === 1) {
+          value = `rgb(${Math.round(a.getR())}, ${Math.round(a.getG())}, ${Math.round(a.getB())})`;
+        } else {
+          value = `rgba(${Math.round(a.getR())}, ${Math.round(a.getG())}, ${Math.round(a.getB())}, ${a.getA()})`;
         }
         break;
       case 'SassNumber':
