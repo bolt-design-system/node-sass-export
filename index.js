@@ -1,7 +1,7 @@
 'use strict';
 (function (module) {
   var _ = require('lodash');
-  var fs = require('fs');
+  var fs = require('fs-extra');
 
   var exporter = module.exports = function (path, name) {
     var out = {};
@@ -55,6 +55,7 @@
           console.log(e);
         }
       }
+      fs.mkdirp(path); //Create folder if it doesn't exist.
       fs.writeFileSync(path + '/' + file.getValue(), opt.prefix + JSON.stringify(output, null, '  ') + opt.suffix);
       return value;
     }
